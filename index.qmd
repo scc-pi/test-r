@@ -21,3 +21,19 @@ ggplot(airquality, aes(Temp, Ozone)) +
   geom_point() + 
   geom_smooth(method = "loess")
 ```
+
+## STATS19 test
+
+```{r}
+#| label: fig-sheff-ksi
+#| fig-cap: "Sheffield KSI."
+#| warning: false
+
+library(stats19)
+
+casualty = get_stats19(year = 2023, type = "casualty")
+
+casualty |> 
+  select(casualty_class, sex_of_casualty, age_of_casualty, casualty_severity) |> 
+  slice_head(n = 6)
+```
